@@ -1,0 +1,54 @@
+form {
+  border: 1px solid lightgray;
+  padding: 10px;
+}
+
+#header {
+  margin: 0;
+  padding: 7px;
+  background-color: #f0f2f5;
+  display: flex;
+}
+
+#header p {
+  margin: 0px 10px;
+}
+.card-body img {
+  height: 45px;
+  width: 48px;
+  border-radius: 50%;
+}
+
+.card-body {
+  display: flex;
+}
+
+.card-body input {
+  border: transparent;
+}
+#body {
+  box-shadow: none;
+  outline: none;
+}
+
+.btn-light {
+  width: 200px;
+}
+
+#gif {
+  border: 1px solid rgba(0, 0, 0, 0.349);
+  padding: 1px;
+  font-size: xx-small;
+  font-weight: 600;
+  width: auto;
+  color: white;
+  background-color: lightgray;
+}
+
+.hide {
+  position: absolute;
+  left: 130px;
+  top: 45px;
+  z-index: 1;
+  height: 350px;
+}
