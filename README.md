@@ -1,3 +1,16 @@
+1) Initial UI
+![image1](https://user-images.githubusercontent.com/63944210/124358119-78eeda80-dc3c-11eb-8136-9ac3df136e87.png)
+
+2) Searching a GIF
+![image2](https://user-images.githubusercontent.com/63944210/124358164-a0de3e00-dc3c-11eb-9de0-ad4ab3b3b099.png)
+
+3)Selecting a GIF
+![image3](https://user-images.githubusercontent.com/63944210/124358172-b05d8700-dc3c-11eb-8bb5-1f0eb0d4aa03.png)
+
+4)After Posting
+![image4](https://user-images.githubusercontent.com/63944210/124358181-c2d7c080-dc3c-11eb-9941-06b841574883.png)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
