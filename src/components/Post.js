@@ -11,7 +11,12 @@ export const Post = (post) => {
           ></img>
           <p className="ml-2">User</p>
           <p className="text-muted mt-4" style={{ marginLeft: "-33px" }}>
-            {new Date(Date.now()).toString()}
+            {new Date(Date.now())
+              .toString()
+              ?.replace("GMT+0530 (India Standard Time)", "")}
+            <span>
+              <i class="fas fa-globe-asia"></i>
+            </span>
           </p>
           <p className="ml-auto" style={{ fontSize: "20px" }}>
             ...
@@ -28,6 +33,26 @@ export const Post = (post) => {
           alt="..."
           style={{ marginTop: "-40px" }}
         />
+      </div>
+      <div className="card-footer" id="footer">
+        <p>
+          <span>
+            <i class="far fa-thumbs-up"></i>
+          </span>{" "}
+          Like
+        </p>
+        <p>
+          <span>
+            <i class="far fa-comment"></i>
+          </span>{" "}
+          Comment
+        </p>
+        <p>
+          <span>
+            <i class="fas fa-share"></i>
+          </span>{" "}
+          Share
+        </p>
       </div>
     </div>
   );

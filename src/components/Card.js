@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Post } from "./Post";
-import Picker from "emoji-picker-react";
 
 export const Card = () => {
   const [text, setText] = useState("");
@@ -8,8 +7,8 @@ export const Card = () => {
   const [modal, setmodal] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
   const [imgurl, setImgurl] = useState([]);
-  const [imgurl1, setImgurl1] = useState([]);
-  const [arr, setArr] = useState([]);
+  const [trending, settrending] = useState([]);
+  const [array, setarray] = useState([]);
   const handleChange = (e) => {
     setText(e.target.value);
   };
@@ -21,7 +20,7 @@ export const Card = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     const data = { value: text, image: selectedImage };
-    setArr([...arr, data]);
+    setarray([...array, data]);
     setText("");
     setSelectedImage("");
   };
@@ -29,18 +28,16 @@ export const Card = () => {
   const imageHandler = async (e) => {
     e.preventDefault();
     setImg(e.target.value);
-    let imgage =
+    let customGif =
       await fetch(`https://api.giphy.com/v1/gifs/search?api_key=VsCimMLxyvCNn3HEMQfys7kwMQPf190F&q=${img}&limit=25&offset=0&rating=g&lang=en
     `);
-    let datas = await imgage.json();
-    let imgage1 =
+    let datas = await customGif.json();
+    let trendingGif =
       await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=VsCimMLxyvCNn3HEMQfys7kwMQPf190F&limit=25&rating=g
     `);
-    let datas1 = await imgage1.json();
-    console.log(datas);
-    console.log(selectedImage);
-    setImgurl(datas.data.map((p) => p.images.original.url));
-    setImgurl1(datas1.data.map((p) => p.images.original.url));
+    let datas1 = await trendingGif.json();
+    setImgurl(datas.data.map((gif) => gif.images.original.url));
+    settrending(datas1.data.map((gif) => gif.images.original.url));
   };
 
   return (
@@ -143,7 +140,7 @@ export const Card = () => {
                   ) : null}
 
                   <div class="table-wrapper-scroll-x mx-custom-scrollbar">
-                    <table class="table table-bordered table-striped mb-0">
+                    <table class="table table-bordered  mb-0">
                       <tbody>
                         {img
                           ? imgurl.map((images) => {
@@ -161,8 +158,8 @@ export const Card = () => {
                                 </tr>
                               );
                             })
-                          : modal
-                          ? imgurl1.map((images) => {
+                          : modal && !img
+                          ? trending.map((images) => {
                               return (
                                 <tr>
                                   <td>
@@ -224,8 +221,8 @@ export const Card = () => {
             </div>
           </div>
         </div>
-        {arr !== []
-          ? arr.map((p) => {
+        {array !== []
+          ? array.map((p) => {
               return <Post post={p} />;
             })
           : null}
